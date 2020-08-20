@@ -3,16 +3,16 @@
 
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
-import LoginForm from "../components/LoginForm";
+import LoginForm from "../components/auth/LoginForm";
+import { requestIsLogin } from '../actions/auth/login'
 
 
 export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            password: '',
-            auth: false,
+             email: '',
+             password: '',
         }
 
         this.onChange = this.onChange.bind(this)
@@ -34,41 +34,7 @@ export default class Login extends Component {
         e.preventDefault()
         const { email, password } = this.state
 
-        const myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        const preRaw = {"email": this.state.email,
-                        "password":this.state.password};
-        const raw = JSON.stringify(preRaw);
-
-        const requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        fetch("https://staging.vemeet.app/api/auth/register/email", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-
-        if(email === 'admin' && password === 'admin'){
-            this.state.auth = true;
-
-            //Отладка
-            console.log('// --- Success!')
-            console.log('Object:')
-            console.log(this.state)
-            console.log('String:')
-            console.log(raw)
-
-            //TODO: Почему не работает Redirect?
-            return (<Redirect to="/dashboard" />);
-        }
-        else{
-            console.log('Wrong Email: ' + this.state.email + ' /Password: ' + this.state.password + ' ! Correct is admin/admin')
-        }
+        requestIsLogin(email, password);
     }
 
     render() {

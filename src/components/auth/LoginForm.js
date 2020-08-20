@@ -71,7 +71,7 @@ const LoginForm = (props) => {
                             </NavLink>
                         </Grid>
                         <Grid item>
-                            <NavLink to="/sign-up" variant="body2">
+                            <NavLink to="/signup" variant="body2">
                                 {"Зарегистрироваться"}
                             </NavLink>
                         </Grid>

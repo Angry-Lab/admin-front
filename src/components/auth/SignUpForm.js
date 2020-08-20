@@ -98,7 +98,7 @@ const SignUpForm = (props) => {
                     </Button>
                     <Grid container justify="flex-end">
                         <Grid item>
-                            <NavLink to="/login" variant="body2">
+                            <NavLink to="/" variant="body2">
                                 Уже используете наш сервис? Войти
                             </NavLink>
                         </Grid>

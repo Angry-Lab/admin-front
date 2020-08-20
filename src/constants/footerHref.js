@@ -1,0 +1,1 @@
+export const footerHref = "https://material-ui.com/";

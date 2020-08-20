@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
-import SignUpForm from "../components/SignUpForm";
+import SignUpForm from "../components/auth/SignUpForm";
 
 
 export default class SignUp extends Component {
