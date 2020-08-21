@@ -4,7 +4,7 @@ import * as types from "../constants/actionTypes";
 const initialState = { data: null };
 
 export const mainReducer = (state = initialState, action) => {
-    console.log("loginReducer", action);
+    console.log("mainReducer", action);
 
     if(action.type === types.LOGIN) {
         return {

@@ -3,10 +3,12 @@
 
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
-import SignUpForm from "../../components/auth/SignUpForm";
+import RegistrationForm from "../../components/auth/RegistrationForm";
+import {registrationRequest} from "../../thunks";
+import {connect} from "react-redux";
 
 
-export default class SignUp extends Component {
+export class Registration extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -37,39 +39,13 @@ export default class SignUp extends Component {
         e.preventDefault()
         const { firstName, secondName, email, password } = this.state
 
-        const myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        const preRaw = {"firstName": this.state.firstName,
-                        "secondName": this.state.secondName,
-                        "email": this.state.email,
-                        "password":this.state.password};
-        const raw = JSON.stringify(preRaw);
-
-        const requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        fetch("https://staging.vemeet.app/api/auth/register/email", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-
-        //Отладка
-        console.log(preRaw)
-
-        //TODO: Почему не работает Redirect?
-        return (<Redirect to="/login" />);
-
+        this.props.registration(firstName, secondName, email, password)
     }
 
     render() {
         return (
             <div>
-                <SignUpForm firstName={this.state.firstName}
+                <RegistrationForm firstName={this.state.firstName}
                             secondName={this.state.secondName}
                             email={this.state.email}
                             password={this.state.password}
@@ -80,3 +56,15 @@ export default class SignUp extends Component {
         );
     }
 }
+
+
+const stateToProps = state => {
+    console.log(state);
+    return state
+};
+
+const dispatchToProps = dispatch => ({
+    registration: (firstName, secondName, email, password) => dispatch(registrationRequest(firstName, secondName, email, password)),
+});
+
+export default connect(stateToProps, dispatchToProps)(Registration);

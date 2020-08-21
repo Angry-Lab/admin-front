@@ -33,13 +33,14 @@ export const loginRequest = (email, password) => async dispatch => {
 };
 
 
-export const registrationRequest = (name, email, password) => async dispatch => {
+export const registrationRequest = (firstName, secondName, email, password) => async dispatch => {
     console.log("registrationRequest")
     try {
         // do request
         const url = urls.BASE_API_URL + urls.REGISTRATION_PATH;
         const body = JSON.stringify({
-            name: name,
+            firstName: firstName,
+            secondName: secondName,
             login: email,
             password: password,
         });

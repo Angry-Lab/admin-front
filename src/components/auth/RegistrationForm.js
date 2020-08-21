@@ -14,7 +14,7 @@ import Container from '@material-ui/core/Container';
 import { NavLink } from "react-router-dom";
 
 
-const SignUpForm = (props) => {
+const RegistrationForm = (props) => {
     const classes = useStyles();
     return (
         <Container component="main" maxWidth="xs">
@@ -130,4 +130,4 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default SignUpForm;
+export default RegistrationForm;

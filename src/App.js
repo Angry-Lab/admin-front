@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom'
 import { connect } from 'react-redux';
 
-import SignUp from './pages/auth/SignUp';
+import Registration from './pages/auth/Registration';
 import Login from './pages/auth/Login';
 import PasswordRecovery from './pages/auth/PasswordRecovery';
 import Dashboard from './pages/dashboard/Dashboard';
@@ -21,7 +21,7 @@ const App = (props) => {
 
             <BrowserRouter>
                 <Route exact path="/" component={Login}/>
-                <Route exact path="/signup" component={SignUp}/>
+                <Route exact path="/signup" component={Registration}/>
                 <Route exact path="/password-recovery" component={PasswordRecovery}/>
             </BrowserRouter>
     );
