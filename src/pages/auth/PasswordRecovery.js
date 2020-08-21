@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
-import PasswordRecoveryForm from "../components/auth/PasswordRecoveryForm";
+import PasswordRecoveryForm from "../../components/auth/PasswordRecoveryForm";
 
 
 export default class PasswordRecovery extends Component {

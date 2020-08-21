@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 
-import LoginForm from "../components/auth/LoginForm";
-import { requestIsLogin } from '../actions/auth/login'
-import { loginRequest } from "../thunks/auth";
+import LoginForm from "../../components/auth/LoginForm";
+import { requestIsLogin } from '../../actions/auth/login'
+import { loginRequest } from "../../thunks/auth";
 
 
 class Login extends Component {

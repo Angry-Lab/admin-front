@@ -1,10 +1,10 @@
 import React from 'react';
-import DashboardContent from "../components/dashboard/DashboardContent";
+import DashboardPage from "../../components/dashboard/dashboard/dashboardPage";
 
 export default function Dashboard() {
     return (
         <div>
-            <DashboardContent />
+            <DashboardPage />
         </div>
     );
 }

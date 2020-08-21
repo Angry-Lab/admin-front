@@ -2,11 +2,10 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom'
 import { connect } from 'react-redux';
 
-import SignUp from './pages/SignUp';
-import Login from './pages/Login';
-import PasswordRecovery from './pages/PasswordRecovery';
-import Dashboard from './pages/Dashboard';
-import { isAuth } from "./constants/auth";
+import SignUp from './pages/auth/SignUp';
+import Login from './pages/auth/Login';
+import PasswordRecovery from './pages/auth/PasswordRecovery';
+import Dashboard from './pages/dashboard/Dashboard';
 import { loginRequest } from "./thunks/auth";
 import { getIsLogged } from "./actions";
 
@@ -15,7 +14,11 @@ const App = (props) => {
     const { isLogged } = props;
 
     return (
-        isLogged ? <Login/> :
+        isLogged === false ?
+            <BrowserRouter>
+                <Route exact path="/" component={Dashboard}/>
+            </BrowserRouter> :
+
             <BrowserRouter>
                 <Route exact path="/" component={Login}/>
                 <Route exact path="/signup" component={SignUp}/>
