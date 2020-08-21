@@ -1,1 +1,15 @@
-##### node_modules backup: https://drive.google.com/drive/folders/18wvce_WzKjUNJZjAVyU4Umn8NcRrcEeX?usp=sharing
+## Available Scripts
+
+In the project directory, install node_modules:
+
+### `npm install`
+
+Next in the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.

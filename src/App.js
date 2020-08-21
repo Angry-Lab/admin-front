@@ -14,7 +14,7 @@ const App = (props) => {
     const { isLogged } = props;
 
     return (
-        isLogged === true ?
+        isLogged === false ?
             <BrowserRouter>
                 <Route exact path="/" component={Dashboard}/>
             </BrowserRouter> :

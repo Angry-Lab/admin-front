@@ -12,6 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import {withStyles} from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import {styles} from "../../../styles/content";
+import Segments from "../Segments";
 
 
 function DashboardContent(props) {
@@ -19,35 +20,7 @@ function DashboardContent(props) {
 
     return (
         <Paper className={classes.paper}>
-            <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
-                <Toolbar>
-                    <Grid container spacing={2} alignItems="center">
-                        <Grid item>
-                            <SearchIcon className={classes.block} color="inherit" />
-                        </Grid>
-                        <Grid item xs>
-                            <TextField
-                                fullWidth
-                                placeholder="Искать по имени"
-                                InputProps={{
-                                    disableUnderline: true,
-                                    className: classes.searchInput,
-                                }}
-                            />
-                        </Grid>
-                        <Grid item>
-                            <Button variant="contained" color="primary" className={classes.addUser}>
-                                Добавить сегмент
-                            </Button>
-                        </Grid>
-                    </Grid>
-                </Toolbar>
-            </AppBar>
-            <div className={classes.contentWrapper}>
-                <Typography color="textSecondary" align="center">
-                    Вы еще не добавили сегменты
-                </Typography>
-            </div>
+            <Segments/>
         </Paper>
     );
 }

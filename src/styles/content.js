@@ -1,6 +1,6 @@
 export const styles = (theme) => ({
     paper: {
-        maxWidth: 936,
+        maxWidth: 1300,
         margin: 'auto',
         overflow: 'hidden',
     },

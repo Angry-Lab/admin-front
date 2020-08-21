@@ -4,6 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 import {styles} from "../../../styles/content";
 import Orders from "../Orders";
+import Graph from "../Graph";
 
 
 function SegmentsContent(props) {
@@ -13,6 +14,7 @@ function SegmentsContent(props) {
         <Paper className={classes.paper}>
             <div className={classes.contentWrapper}>
                 <Orders/>
+                <Graph/>
             </div>
         </Paper>
     );

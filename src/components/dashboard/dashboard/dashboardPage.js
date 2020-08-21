@@ -15,6 +15,10 @@ function DashboardPage(props) {
         setMobileOpen(!mobileOpen);
     };
 
+
+    //<footer className={classes.footer}>
+    //   <Footer />
+    //</footer>
     return (
         <ThemeProvider theme={theme}>
             <div className={classes.root}>
@@ -22,9 +26,6 @@ function DashboardPage(props) {
                 <div className={classes.app}>
                     <Header onDrawerToggle={handleDrawerToggle} />
 
-                    <footer className={classes.footer}>
-                        <Footer />
-                    </footer>
                 </div>
             </div>
         </ThemeProvider>
