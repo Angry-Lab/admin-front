@@ -5,8 +5,7 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 
 import LoginForm from "../../components/auth/LoginForm";
-import { requestIsLogin } from '../../actions/auth/login'
-import { loginRequest } from "../../thunks/auth";
+import { loginRequest } from "../../thunks";
 
 
 class Login extends Component {

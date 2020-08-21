@@ -9,14 +9,9 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
-import {ThemeProvider, withStyles} from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
-import RefreshIcon from '@material-ui/icons/Refresh';
 import {styles} from "../../../styles/content";
-import {theme} from "../../../styles/pages";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Header from "../Header";
-import Footer from "../Footer";
 
 
 function DashboardContent(props) {
@@ -44,11 +39,6 @@ function DashboardContent(props) {
                             <Button variant="contained" color="primary" className={classes.addUser}>
                                 Добавить сегмент
                             </Button>
-                            <Tooltip title="Reload">
-                                <IconButton>
-                                    <RefreshIcon className={classes.block} color="inherit" />
-                                </IconButton>
-                            </Tooltip>
                         </Grid>
                     </Grid>
                 </Toolbar>

@@ -14,7 +14,7 @@ export const styles = (theme) => ({
         display: 'block',
     },
     addUser: {
-        marginRight: theme.spacing(1),
+        marginRight: theme.spacing(-2),
     },
     contentWrapper: {
         margin: '40px 16px',

@@ -6,15 +6,15 @@ import SignUp from './pages/auth/SignUp';
 import Login from './pages/auth/Login';
 import PasswordRecovery from './pages/auth/PasswordRecovery';
 import Dashboard from './pages/dashboard/Dashboard';
-import { loginRequest } from "./thunks/auth";
-import { getIsLogged } from "./actions";
+import { loginRequest } from "./thunks";
+import { getIsLogged } from "./actions/getIsLogged";
 
 
 const App = (props) => {
     const { isLogged } = props;
 
     return (
-        isLogged === false ?
+        isLogged === true ?
             <BrowserRouter>
                 <Route exact path="/" component={Dashboard}/>
             </BrowserRouter> :

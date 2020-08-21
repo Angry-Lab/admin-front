@@ -108,12 +108,12 @@ function Header(props) {
                     <Grid container alignItems="center" spacing={1}>
                         <Grid item xs>
                             <Typography color="inherit" variant="h5" component="h1">
-                                Нэйм и лого этой штуки
+                                AngryStat
                             </Typography>
                         </Grid>
                         <Grid item>
                             <Button className={classes.button} variant="outlined" color="inherit" size="small">
-                                Кнопка...
+                                Я кто 🗿
                             </Button>
                         </Grid>
                         <Grid item>
