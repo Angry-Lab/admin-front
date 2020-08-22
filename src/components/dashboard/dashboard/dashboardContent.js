@@ -12,7 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import {withStyles} from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import {styles} from "../../../styles/content";
-import Segments from "../Segments";
+import Segments from "./Segments";
 
 
 function DashboardContent(props) {

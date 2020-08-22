@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 
 import LoginForm from "../../components/auth/LoginForm";
-import { loginRequest } from "../../thunks";
+//import { loginRequest } from "../../thunks";
 
 
 class Login extends Component {
@@ -60,8 +60,11 @@ const stateToProps = state => {
     return state
 };
 
-const dispatchToProps = dispatch => ({
-    login: (email, password) => dispatch(loginRequest(email, password)),
-});
+// const dispatchToProps = dispatch => ({
+//     login: (email, password) => dispatch(loginRequest(email, password)),
+// });
 
-export default connect(stateToProps, dispatchToProps)(Login);
+export default connect(stateToProps)(Login);
+
+//, dispatchToProps
+//это через запятую после стэйт ту пропс

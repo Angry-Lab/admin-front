@@ -77,23 +77,7 @@ function Header(props) {
                             </Grid>
                         </Hidden>
                         <Grid item xs />
-                        <Grid item>
-                            <Link className={classes.link} href="#" variant="body2">
-                                Перейти к документации
-                            </Link>
-                        </Grid>
-                        <Grid item>
-                            <Tooltip title="Alerts • No alerts">
-                                <IconButton color="inherit">
-                                    <NotificationsIcon />
-                                </IconButton>
-                            </Tooltip>
-                        </Grid>
-                        <Grid item>
-                            <IconButton color="inherit" className={classes.iconButtonAvatar}>
-                                <Avatar src="/static/images/avatar/1.jpg" alt="My Avatar" />
-                            </IconButton>
-                        </Grid>
+
                     </Grid>
                 </Toolbar>
             </AppBar>
@@ -108,21 +92,21 @@ function Header(props) {
                     <Grid container alignItems="center" spacing={1}>
                         <Grid item xs>
                             <Typography color="inherit" variant="h5" component="h1">
-                                AngryStat
+                                HotStat
                             </Typography>
                         </Grid>
+
                         <Grid item>
-                            <Button className={classes.button} variant="outlined" color="inherit" size="small">
-                                Я кто 🗿
+                            <Button variant="contained" color="secondary">
+                                Выйти
                             </Button>
                         </Grid>
                         <Grid item>
-                            <Tooltip title="Help">
-                                <IconButton color="inherit">
-                                    <HelpIcon />
-                                </IconButton>
-                            </Tooltip>
+                            <IconButton color="inherit" className={classes.iconButtonAvatar} style={{minWidth: 50, minHeight: 50}}>
+                                <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQAZyFdywMPXJlTpPImDs4x5RkRvjCqAk6tsA&usqp=CAU" alt="My Avatar" style={{minWidth: 50, minHeight: 50}}/>
+                            </IconButton>
                         </Grid>
+
                     </Grid>
                 </Toolbar>
             </AppBar>

@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 import RegistrationForm from "../../components/auth/RegistrationForm";
-import {registrationRequest} from "../../thunks";
+//import {registrationRequest} from "../../thunks";
 import {connect} from "react-redux";
 
 
@@ -63,8 +63,11 @@ const stateToProps = state => {
     return state
 };
 
-const dispatchToProps = dispatch => ({
-    registration: (firstName, secondName, email, password) => dispatch(registrationRequest(firstName, secondName, email, password)),
-});
+// const dispatchToProps = dispatch => ({
+//     registration: (firstName, secondName, email, password) => dispatch(registrationRequest(firstName, secondName, email, password)),
+// });
 
-export default connect(stateToProps, dispatchToProps)(Registration);
+export default connect(stateToProps)(Registration);
+
+//dispatchToProps
+//это через запятую после стэйт ту пропс
