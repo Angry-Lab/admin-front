@@ -20,6 +20,8 @@ import Box from "@material-ui/core/Box";
 import {styles} from "../../styles/header";
 import SegmentsContent from './segments/segmentsContent';
 import DashboardContent from "./dashboard/dashboardContent";
+import logo from '../../images/logo.png';
+import Orders from "./dashboard/charts/Orders";
 
 
 function TabPanel(props) {
@@ -62,24 +64,7 @@ function Header(props) {
     return (
         <React.Fragment>
             <AppBar color="primary" position="sticky" elevation={0}>
-                <Toolbar>
-                    <Grid container spacing={1} alignItems="center">
-                        <Hidden smUp>
-                            <Grid item>
-                                <IconButton
-                                    color="inherit"
-                                    aria-label="open drawer"
-                                    onClick={onDrawerToggle}
-                                    className={classes.menuButton}
-                                >
-                                    <MenuIcon />
-                                </IconButton>
-                            </Grid>
-                        </Hidden>
-                        <Grid item xs />
-
-                    </Grid>
-                </Toolbar>
+                <Toolbar style={{marginTop: -30}}/>
             </AppBar>
             <AppBar
                 component="div"
@@ -91,17 +76,15 @@ function Header(props) {
                 <Toolbar>
                     <Grid container alignItems="center" spacing={1}>
                         <Grid item xs>
-                            <Typography color="inherit" variant="h5" component="h1">
-                                HotStat
-                            </Typography>
+                            <img src={logo} style={{maxBlockSize:55, marginBottom:-15}}/>
                         </Grid>
 
-                        <Grid item>
-                            <Button variant="contained" color="secondary">
+                        <Grid item style={{marginBottom:-5}}>
+                            <Button variant="contained" color="green">
                                 Выйти
                             </Button>
                         </Grid>
-                        <Grid item>
+                        <Grid item style={{marginBottom:-5}}>
                             <IconButton color="inherit" className={classes.iconButtonAvatar} style={{minWidth: 50, minHeight: 50}}>
                                 <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQAZyFdywMPXJlTpPImDs4x5RkRvjCqAk6tsA&usqp=CAU" alt="My Avatar" style={{minWidth: 50, minHeight: 50}}/>
                             </IconButton>
@@ -119,7 +102,7 @@ function Header(props) {
             >
                 <Tabs value={value} onChange={handleChange} textColor="inherit">
                     <Tab textColor="inherit" label="Обзор" {...a11yProps(0)} />
-                    <Tab textColor="inherit" label="Сегменты" {...a11yProps(1)} />
+                    <Tab textColor="inherit" label="Аналитика" {...a11yProps(1)} />
                 </Tabs>
             </AppBar>
 

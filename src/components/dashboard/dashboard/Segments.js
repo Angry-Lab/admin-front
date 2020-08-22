@@ -9,22 +9,13 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
-import Typography from "@material-ui/core/Typography";
-import { withStyles } from '@material-ui/core/styles';
-import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogContent from '@material-ui/core/DialogContent';
-import MuiDialogActions from '@material-ui/core/DialogActions';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-import Segment1 from "../fullSegment";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogActions from "@material-ui/core/DialogActions";
-import Graph from "./Graph";
+import Graph from "./charts/Graph";
 import FolderOpenIcon from '@material-ui/icons/FolderOpen';
-import Orders from "../Orders";
-import {Grid} from "@material-ui/core";
+import {segmentContent1, segmentContent2, segmentContent3, segmentContent4} from "./segmentContent";
+import Graph2 from "./charts/Graph2";
 
 
 
@@ -41,28 +32,56 @@ function createData(id, name, calories, day, carbs, button) {
 }
 
 
-const bb = <Graph/>;
-
-
-const rows = [
-    createData(0,'По дальности пересылки', 159, "+6.0", bb, 0 ),
-    createData(1,'По потраченным деньгам', 237, "+9.0", bb, 0),
-    createData(2,'По чем и ком место', 262, "+16.0", bb, 0),
-    createData(3,'Торт займи место', 305, "+3.7", bb, 0),
-    createData(4,'По активности место', 356, "+16.0", bb, 0),
-];
-
+//todo: здесь сидит такой угарный костыль вы упадете это короче мой первый калькулятор эдишн
 export default function Segments() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const [contentId, setContentId] = React.useState(1);
+    const [segmentContent, setSegmentContent] = React.useState(segmentContent1);
+    const [segmentName, setSegmentName] = React.useState("segmentContent1");
 
-    const handleClickOpen = () => {
+
+    const handleClickOpen = (e) => {
         setOpen(true);
+        setContentId(id);
+        console.log(contentId)
+
+        if (contentId === 1) {
+            setSegmentContent(segmentContent1)
+        } else if (contentId === 2) {
+            setSegmentContent(segmentContent2)
+        }else if (contentId === 3) {
+            setSegmentContent(segmentContent3)
+        }else if (contentId === 4) {
+            setSegmentContent(segmentContent4)
+        }
+
+        if (contentId === 1) {
+            setSegmentName("Юр. лица")
+        } else if (contentId === 2) {
+            setSegmentName("Премиум пользователи")
+        }else if (contentId === 3) {
+            setSegmentName("Активные")
+        }else if (contentId === 4) {
+            setSegmentName("Неактивные")
+        }
     };
+
 
     const handleClose = () => {
         setOpen(false);
     };
+
+
+    const rows = [
+        createData(1,'Юр. лица', 134501, "+65", 65183829, 0 ),
+        createData(2,'Премиум пользователи', 129910, "+177", 93743290, 0),
+        createData(3,'Активные', 263720, "+96", 88364724, 0),
+        createData(4,'Неактивные', 421515, "+33", 130782578, 0),
+
+
+    ];
+
 
     return (
         <>
@@ -71,30 +90,29 @@ export default function Segments() {
                 <TableHead style={{backgroundColor: '#ebeff1'}}>
                     <TableRow>
                         <TableCell>Название</TableCell>
-                        <TableCell align="center">Нитка</TableCell>
+                        <TableCell align="center">Всего</TableCell>
                         <TableCell align="center">Вхождений/сутки</TableCell>
-                        <TableCell align="center">Прибыль</TableCell>
+                        <TableCell align="center">Выручка</TableCell>
                         <TableCell align="center"></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {rows.map((row) => (
-                        <TableRow key={row.name} hover>
+                        <TableRow key={row.id} hover>
                             <TableCell component="th" scope="row">
                                 {row.name}
                             </TableCell>
                             <TableCell align="center">{row.calories}</TableCell>
                             <TableCell align="center" style={{color: '#007600'}}>{row.day}</TableCell>
                             <TableCell align="center">{row.carbs}</TableCell>
-                            <TableCell align="center">
-                                <Button outline
-                                        variant="contained"
-                                        color="primary"
-                                        onClick={handleClickOpen}
-                                        contentID={row.id}
-                                >
-                                    <FolderOpenIcon/>
-                                </Button>
+                            <TableCell align="center"><Button outline
+                                                              variant="contained"
+                                                              color="primary"
+                                                              onClick={(e) => (handleClickOpen(e))}
+                                                              contentID={row.id}
+                                                        >
+                                                            <FolderOpenIcon/>
+                                                        </Button>
                             </TableCell>
                         </TableRow>
                     ))}
@@ -106,21 +124,10 @@ export default function Segments() {
 
             <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" fullWidth={true} maxWidth={"md"} open={open}>
                 <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-                    <b1>По дальности пересылки</b1>
+                    <b1>{segmentName}</b1>
                 </DialogTitle>
                 <DialogContent dividers style={{minHeight: 550, minWidth: 500}}>
-                    <Typography gutterBottom>
-                        Пользователи этого сегмента предпочитают заплатить меньше, но ждать свое отправление дольше.
-                        Мы могли бы предложить им более выгодный тариф или иное мотивирующее предложение.
-                    </Typography>
-                    <Typography gutterBottom>
-                        Данные пользователи характеризуются расстоянием и стоимостью отправления:
-                    </Typography>
-                    <Orders/>
-                    <Typography gutterBottom>
-                        Текущая прибыльность сегмента:
-                    </Typography>
-                    <Graph/>
+                    {segmentContent}
                 </DialogContent>
                 <DialogActions>
                     <Button autoFocus onClick={handleClose} color="primary">
