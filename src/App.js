@@ -17,8 +17,7 @@ const App = (props) => {
     return (
 
             <BrowserRouter>
-                <Route exact path="/" component={Dashboard}/>
-
+                <Route exact path="/dashboard" component={Dashboard}/>
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/signup" component={Registration}/>
                 <Route exact path="/password-recovery" component={PasswordRecovery}/>

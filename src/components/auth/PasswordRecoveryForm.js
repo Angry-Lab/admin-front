@@ -48,7 +48,7 @@ const PasswordRecoveryForm = (props) => {
                     </Button>
                     <Grid container>
                         <Grid item>
-                            <NavLink to="/" variant="body2">
+                            <NavLink to="/login" variant="body2">
                                 {"Назад"}
                             </NavLink>
                         </Grid>

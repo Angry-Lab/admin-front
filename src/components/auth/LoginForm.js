@@ -61,6 +61,7 @@ const LoginForm = (props) => {
                         color="primary"
                         className={classes.submit}
                         onClick={props.submitForm}
+                        href="/dashboard"
                     >
                         Войти
                     </Button>

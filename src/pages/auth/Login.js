@@ -33,12 +33,12 @@ class Login extends Component {
     submitForm(e) {
         //Когда ты нажимаешь на кнопку ВОЙТИ, email и password отправляются на сервер.
         //Молодец - редирект в Dashboard.
-        e.preventDefault();
-        const { email, password } = this.state;
+        // e.preventDefault();
+        // const { email, password } = this.state;
 
         // requestIsLogin(email, password);
 
-        this.props.login(email, password)
+        //this.props.login(email, password)
     }
 
     render() {
