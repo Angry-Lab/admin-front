@@ -41,28 +41,31 @@ export default function Segments() {
     const [segmentName, setSegmentName] = React.useState("segmentContent1");
 
 
-    const handleClickOpen = (e) => {
+    const handleClickOpen = (id) => {
         setOpen(true);
-        setContentId(id);
-        console.log(contentId)
+        // setContentId(e.currentTarget.getAttribute('contentid'));
+        // console.log(e.currentTarget.getAttribute('contentid'));
+        // return
 
-        if (contentId === 1) {
+        // console.log(contentId);
+
+        if (id === 1) {
             setSegmentContent(segmentContent1)
-        } else if (contentId === 2) {
+        } else if (id === 2) {
             setSegmentContent(segmentContent2)
-        }else if (contentId === 3) {
+        }else if (id === 3) {
             setSegmentContent(segmentContent3)
-        }else if (contentId === 4) {
+        }else if (id === 4) {
             setSegmentContent(segmentContent4)
         }
 
-        if (contentId === 1) {
+        if (id === 1) {
             setSegmentName("Юр. лица")
-        } else if (contentId === 2) {
+        } else if (id === 2) {
             setSegmentName("Премиум пользователи")
-        }else if (contentId === 3) {
+        }else if (id === 3) {
             setSegmentName("Активные")
-        }else if (contentId === 4) {
+        }else if (id === 4) {
             setSegmentName("Неактивные")
         }
     };
@@ -108,7 +111,7 @@ export default function Segments() {
                             <TableCell align="center"><Button outline
                                                               variant="contained"
                                                               color="primary"
-                                                              onClick={(e) => (handleClickOpen(e))}
+                                                              onClick={(e) => (handleClickOpen(row.id))}
                                                               contentID={row.id}
                                                         >
                                                             <FolderOpenIcon/>
