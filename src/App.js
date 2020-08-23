@@ -9,6 +9,8 @@ import Dashboard from './pages/dashboard/Dashboard';
 // import { loginRequest } from "./thunks";
 // import { getIsLogged } from "./actions/getIsLogged";
 
+const baseURL = process.env.PUBLIC_URL;
+console.log(baseURL);
 
 const App = (props) => {
     //const { isLogged } = props;
@@ -16,13 +18,13 @@ const App = (props) => {
 // login не действителен
     return (
 
-            <BrowserRouter>
-                <Route exact path="/" component={Dashboard}/>
+        <BrowserRouter>
+            <Route exact path={baseURL} component={Dashboard}/>
 
-                <Route exact path="/login" component={Login}/>
-                <Route exact path="/signup" component={Registration}/>
-                <Route exact path="/password-recovery" component={PasswordRecovery}/>
-            </BrowserRouter>
+            <Route exact path={baseURL + "/login"} component={Login}/>
+            <Route exact path={baseURL + "/signup"} component={Registration}/>
+            <Route exact path={baseURL + "/password-recovery"} component={PasswordRecovery}/>
+        </BrowserRouter>
     );
 };
 

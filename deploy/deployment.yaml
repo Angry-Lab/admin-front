@@ -1,0 +1,62 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: angry
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: admin-front-svc
+  namespace: angry
+spec:
+  selector:
+    app: admin-front
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: admin-front
+  namespace: angry
+spec:
+  selector:
+    matchLabels:
+      app: admin-front
+  template:
+    metadata:
+      labels:
+        app: admin-front
+    spec:
+      containers:
+        - name: admin-front
+          image: r.golangpro.ru/angry-lab/admin-front:latest
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: 1000m
+      imagePullSecrets:
+        - name: r-golang-pro-registry
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: admin-front-ingress
+  namespace: angry
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+    - host: api.golangpro.ru
+      http:
+        paths:
+          - path: "/service/(.*)"
+            backend:
+              serviceName: admin-front-svc
+              servicePort: 80
